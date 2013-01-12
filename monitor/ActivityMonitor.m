@@ -36,7 +36,12 @@
   if (![[NSFileManager defaultManager] fileExistsAtPath:outputURL.path])
     [[NSFileManager defaultManager] createFileAtPath:outputURL.path contents:nil attributes:nil];
   
-  NSFileHandle *file = [NSFileHandle fileHandleForUpdatingURL:outputURL error:nil];
+  NSError *error;
+  NSFileHandle *file = [NSFileHandle fileHandleForUpdatingURL:outputURL error:&error];
+  if (!file) {
+    NSLog(@"%@ Failed to open file %@ for writing: %@ #Error", self.class, outputURL, error.localizedDescription);
+    return;
+  }
   [file seekToEndOfFile];
   [file writeData:yaml];
   [file closeFile];
