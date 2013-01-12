@@ -1,4 +1,5 @@
-bin/
+/bin/
+/build/
 xcuserdata/
 .bundle
 .ninja_log
