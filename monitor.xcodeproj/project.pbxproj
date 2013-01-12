@@ -14,6 +14,7 @@
 		97793AD416A1025F00768A4E /* CameraMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793AD316A1025F00768A4E /* CameraMonitor.m */; };
 		97793AD716A1083600768A4E /* Monitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793AD616A1083600768A4E /* Monitor.m */; };
 		97793AD916A1133C00768A4E /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97793AD816A1133C00768A4E /* ScriptingBridge.framework */; };
+		97793ADC16A1136D00768A4E /* ActivityMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793ADB16A1136D00768A4E /* ActivityMonitor.m */; };
 		97793ADF16A113AE00768A4E /* BasicMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793ADE16A113AE00768A4E /* BasicMonitor.m */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 		97793AD516A1083600768A4E /* Monitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monitor.h; sourceTree = "<group>"; };
 		97793AD616A1083600768A4E /* Monitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monitor.m; sourceTree = "<group>"; };
 		97793AD816A1133C00768A4E /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		97793ADA16A1136D00768A4E /* ActivityMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityMonitor.h; sourceTree = "<group>"; };
+		97793ADB16A1136D00768A4E /* ActivityMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityMonitor.m; sourceTree = "<group>"; };
 		97793ADD16A113AE00768A4E /* BasicMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMonitor.h; sourceTree = "<group>"; };
 		97793ADE16A113AE00768A4E /* BasicMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMonitor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +93,8 @@
 		97793AC416A1021100768A4E /* monitor */ = {
 			isa = PBXGroup;
 			children = (
+				97793ADA16A1136D00768A4E /* ActivityMonitor.h */,
+				97793ADB16A1136D00768A4E /* ActivityMonitor.m */,
 				97793ADD16A113AE00768A4E /* BasicMonitor.h */,
 				97793ADE16A113AE00768A4E /* BasicMonitor.m */,
 				97793AD216A1025F00768A4E /* CameraMonitor.h */,
@@ -165,6 +170,7 @@
 				97793AC616A1021100768A4E /* main.m in Sources */,
 				97793AD416A1025F00768A4E /* CameraMonitor.m in Sources */,
 				97793AD716A1083600768A4E /* Monitor.m in Sources */,
+				97793ADC16A1136D00768A4E /* ActivityMonitor.m in Sources */,
 				97793ADF16A113AE00768A4E /* BasicMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +274,7 @@
 				97793ACF16A1021100768A4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
