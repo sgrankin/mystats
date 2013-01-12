@@ -1,5 +1,5 @@
 //
-//  main.m
+//  Monitor.h
 //  monitor
 //
 //  Created by Sergey Grankin on 2013-01-11.
@@ -7,13 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Monitor.h"
 
-int main(int argc, const char * argv[])
-{
-    @autoreleasepool {
-        [[Monitor new] run];
-    }
-    return 0;
-}
-
+@interface Monitor : NSObject
+- (instancetype)initWithOutputDirectoryURL:(NSURL *)outputDirectory;
+- (void)run;
+@end

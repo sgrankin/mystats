@@ -1,5 +1,5 @@
 //
-//  main.m
+//  CameraMonitor.h
 //  monitor
 //
 //  Created by Sergey Grankin on 2013-01-11.
@@ -7,13 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Monitor.h"
+#import "BasicMonitor.h"
 
-int main(int argc, const char * argv[])
-{
-    @autoreleasepool {
-        [[Monitor new] run];
-    }
-    return 0;
-}
-
+@interface CameraMonitor : BasicMonitor
+@end

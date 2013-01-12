@@ -10,6 +10,11 @@
 		97793AC316A1021100768A4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97793AC216A1021100768A4E /* Foundation.framework */; };
 		97793AC616A1021100768A4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793AC516A1021100768A4E /* main.m */; };
 		97793ACA16A1021100768A4E /* monitor.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97793AC916A1021100768A4E /* monitor.1 */; };
+		97793AD116A1023000768A4E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97793AD016A1023000768A4E /* AVFoundation.framework */; };
+		97793AD416A1025F00768A4E /* CameraMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793AD316A1025F00768A4E /* CameraMonitor.m */; };
+		97793AD716A1083600768A4E /* Monitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793AD616A1083600768A4E /* Monitor.m */; };
+		97793AD916A1133C00768A4E /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97793AD816A1133C00768A4E /* ScriptingBridge.framework */; };
+		97793ADF16A113AE00768A4E /* BasicMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793ADE16A113AE00768A4E /* BasicMonitor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +36,14 @@
 		97793AC516A1021100768A4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97793AC816A1021100768A4E /* monitor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "monitor-Prefix.pch"; sourceTree = "<group>"; };
 		97793AC916A1021100768A4E /* monitor.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = monitor.1; sourceTree = "<group>"; };
+		97793AD016A1023000768A4E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		97793AD216A1025F00768A4E /* CameraMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraMonitor.h; sourceTree = "<group>"; };
+		97793AD316A1025F00768A4E /* CameraMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraMonitor.m; sourceTree = "<group>"; };
+		97793AD516A1083600768A4E /* Monitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monitor.h; sourceTree = "<group>"; };
+		97793AD616A1083600768A4E /* Monitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monitor.m; sourceTree = "<group>"; };
+		97793AD816A1133C00768A4E /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		97793ADD16A113AE00768A4E /* BasicMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMonitor.h; sourceTree = "<group>"; };
+		97793ADE16A113AE00768A4E /* BasicMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMonitor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97793AD916A1133C00768A4E /* ScriptingBridge.framework in Frameworks */,
+				97793AD116A1023000768A4E /* AVFoundation.framework in Frameworks */,
 				97793AC316A1021100768A4E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +80,8 @@
 		97793AC116A1021100768A4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				97793AD816A1133C00768A4E /* ScriptingBridge.framework */,
+				97793AD016A1023000768A4E /* AVFoundation.framework */,
 				97793AC216A1021100768A4E /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -73,8 +90,14 @@
 		97793AC416A1021100768A4E /* monitor */ = {
 			isa = PBXGroup;
 			children = (
+				97793ADD16A113AE00768A4E /* BasicMonitor.h */,
+				97793ADE16A113AE00768A4E /* BasicMonitor.m */,
+				97793AD216A1025F00768A4E /* CameraMonitor.h */,
+				97793AD316A1025F00768A4E /* CameraMonitor.m */,
 				97793AC516A1021100768A4E /* main.m */,
 				97793AC916A1021100768A4E /* monitor.1 */,
+				97793AD516A1083600768A4E /* Monitor.h */,
+				97793AD616A1083600768A4E /* Monitor.m */,
 				97793AC716A1021100768A4E /* Supporting Files */,
 			);
 			path = monitor;
@@ -140,6 +163,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				97793AC616A1021100768A4E /* main.m in Sources */,
+				97793AD416A1025F00768A4E /* CameraMonitor.m in Sources */,
+				97793AD716A1083600768A4E /* Monitor.m in Sources */,
+				97793ADF16A113AE00768A4E /* BasicMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
