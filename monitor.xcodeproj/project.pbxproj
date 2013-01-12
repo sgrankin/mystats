@@ -83,7 +83,7 @@
 		97793AC216A1021100768A4E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		97793AC516A1021100768A4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97793AC816A1021100768A4E /* monitor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "monitor-Prefix.pch"; sourceTree = "<group>"; };
-		97793AC916A1021100768A4E /* monitor.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = monitor.1; sourceTree = "<group>"; };
+		97793AC916A1021100768A4E /* monitor.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = monitor.1; path = ../man/monitor.1; sourceTree = "<group>"; };
 		97793AD016A1023000768A4E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		97793AD216A1025F00768A4E /* CameraMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraMonitor.h; sourceTree = "<group>"; };
 		97793AD316A1025F00768A4E /* CameraMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraMonitor.m; sourceTree = "<group>"; };
