@@ -1,0 +1,15 @@
+rule bundler
+  command = bundle install --quiet --gemfile=$in --binstubs && touch $out
+build Gemfile.lock : bundler Gemfile
+
+rule sdp
+  command = sdef $in | sdp -fh -o $out --basename $basename
+build monitor/iTunes.h : sdp /Applications/iTunes.app
+  basename = iTunes
+build monitor/SystemEvents.h : sdp /System/Library/CoreServices/System$ Events.app
+  basename = "System Events"
+
+rule ronn
+  command = bin/ronn --markdown --roff --html --style=toc $in
+build monitor/monitor.1.html monitor/monitor.1.markdown monitor/monitor.1 : ronn monitor/monitor.1.ronn
+

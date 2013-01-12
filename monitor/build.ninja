@@ -1,8 +1,0 @@
-rule sdp
-  command = sdef $in | sdp -fh -o $out --basename $basename
-
-build iTunes.h : sdp /Applications/iTunes.app
-  basename = iTunes
-
-build SystemEvents.h : sdp /System/Library/CoreServices/System$ Events.app
-  basename = "System Events"

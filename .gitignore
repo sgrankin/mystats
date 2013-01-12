@@ -1,2 +1,4 @@
+bin/
 xcuserdata/
-monitor/.ninja_log
+.bundle
+.ninja_log

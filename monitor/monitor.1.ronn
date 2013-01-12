@@ -1,0 +1,23 @@
+monitor(1) -- spy on yourself
+==============================
+
+## SYNOPSIS
+`monitor` <path>
+
+## DESCRIPTION
+While running, `monitor` will, at it's discretion:
+
+- Snap a photo with your webcam.
+- Record the current app.
+- Record how long you've been idling.
+- Maybe note down what you're listening to.
+
+## OPTIONS
+* <path>:
+  Directory output will be written to.
+
+## AUTHOR
+Sergey Grankin <sagran@gmail.com>
+
+## COPYRIGHT
+See `LICENSE`
