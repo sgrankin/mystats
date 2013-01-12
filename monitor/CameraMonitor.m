@@ -63,7 +63,7 @@
          NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
          CFRelease(imageDataSampleBuffer);
          if (self.verbose)
-           NSLog(@"%@ Writing snapshot to %@ #Comment", self.class, outputURL);
+           NSLog(@"%@ Writing snapshot to %@", self.class, outputURL);
          [data writeToURL:outputURL atomically:YES];
        }
        else {
