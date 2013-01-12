@@ -25,6 +25,9 @@ Sergey Grankin <sagran@gmail.com>
 ## COPYRIGHT
 See `LICENSE`
 
+## SEE ALSO
+<http://news.ycombinator.com/item?id=5021783>
+
 
 [SYNOPSIS]: #SYNOPSIS "SYNOPSIS"
 [DESCRIPTION]: #DESCRIPTION "DESCRIPTION"
@@ -32,6 +35,7 @@ See `LICENSE`
 [BUGS]: #BUGS "BUGS"
 [AUTHOR]: #AUTHOR "AUTHOR"
 [COPYRIGHT]: #COPYRIGHT "COPYRIGHT"
+[SEE ALSO]: #SEE-ALSO "SEE ALSO"
 
 
 [monitor(1)]: monitor.1.html

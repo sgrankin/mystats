@@ -24,3 +24,6 @@ Sergey Grankin <sagran@gmail.com>
 
 ## COPYRIGHT
 See `LICENSE`
+
+## SEE ALSO
+<http://news.ycombinator.com/item?id=5021783>
