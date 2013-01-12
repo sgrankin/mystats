@@ -16,6 +16,9 @@ While running, `monitor` will, at it's discretion:
 * <var>path</var>:
   Directory output will be written to.
 
+## BUGS
+Boring name is boring.
+
 ## AUTHOR
 Sergey Grankin <sagran@gmail.com>
 
@@ -26,6 +29,7 @@ See `LICENSE`
 [SYNOPSIS]: #SYNOPSIS "SYNOPSIS"
 [DESCRIPTION]: #DESCRIPTION "DESCRIPTION"
 [OPTIONS]: #OPTIONS "OPTIONS"
+[BUGS]: #BUGS "BUGS"
 [AUTHOR]: #AUTHOR "AUTHOR"
 [COPYRIGHT]: #COPYRIGHT "COPYRIGHT"
 

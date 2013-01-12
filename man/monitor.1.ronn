@@ -16,6 +16,9 @@ While running, `monitor` will, at it's discretion:
 * <path>:
   Directory output will be written to.
 
+## BUGS
+Boring name is boring.
+
 ## AUTHOR
 Sergey Grankin <sagran@gmail.com>
 
