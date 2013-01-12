@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface BasicMonitor : NSObject
-/// @param outpxutDirectory Where to write any generated files.
+/// @param outputDirectory Where to write any generated files.
 - (instancetype)initWithOutputDirectoryURL:(NSURL *)outputDirectory;
 
 /// Called periodically by the main loop.
