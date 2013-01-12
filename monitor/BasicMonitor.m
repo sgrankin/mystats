@@ -25,6 +25,7 @@
 {
     if (self = [super init]) {
         _outputDirectory = outputDirectory;
+        [[NSFileManager defaultManager] createDirectoryAtURL:_outputDirectory withIntermediateDirectories:YES attributes:nil error:nil];
     }
     return self;
 }

@@ -15,7 +15,6 @@
     AVCaptureSession *_captureSession;
     AVCaptureStillImageOutput *_stillOutput;
 }
-
 @end
 
 @implementation CameraMonitor
@@ -61,7 +60,6 @@
              if (imageDataSampleBuffer) {
                  NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                  CFRelease(imageDataSampleBuffer);
-                 [[NSFileManager defaultManager] createDirectoryAtURL:self.outputDirectory withIntermediateDirectories:YES attributes:nil error:nil];
                  [data writeToURL:outputURL atomically:YES];
              }
          });
