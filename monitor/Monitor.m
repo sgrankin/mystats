@@ -38,6 +38,7 @@
 
 - (void)run
 {
+  self.outputDirectory = self.outputDirectory.absoluteURL;
   if (self.verbose)
     NSLog(@"Writing to %@", self.outputDirectory);
   CameraMonitor *cameraMonitor = [[CameraMonitor alloc] initWithOutputDirectoryURL:[_outputDirectory URLByAppendingPathComponent:@"headshot"]];

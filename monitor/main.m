@@ -44,8 +44,10 @@ int main(int argc, char * const argv[])
     argc -= optind;
     argv += optind;
     
-    if (argc > 1)
-      monitor.outputDirectory = [NSURL fileURLWithPath:[NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding] isDirectory:YES];
+    if (argc)
+      monitor.outputDirectory = [NSURL fileURLWithPath:[[NSString stringWithCString:argv[0]
+                                                                           encoding:NSUTF8StringEncoding] stringByExpandingTildeInPath]
+                                           isDirectory:YES];
     
     [monitor run]; // GO!
   }
