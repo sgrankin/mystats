@@ -11,9 +11,9 @@
 
 int main(int argc, const char * argv[])
 {
-    @autoreleasepool {
-        [[Monitor new] run];
-    }
-    return 0;
+  @autoreleasepool {
+    [[Monitor new] run];
+  }
+  return 0;
 }
 

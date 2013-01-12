@@ -14,7 +14,7 @@
 
 @interface Monitor ()
 {
-    NSURL *_outputDirectory;
+  NSURL *_outputDirectory;
 }
 
 @end
@@ -22,32 +22,32 @@
 @implementation Monitor
 - (instancetype)init
 {
-    return [self initWithOutputDirectoryURL:[NSURL fileURLWithPath:[NSFileManager defaultManager].currentDirectoryPath]];
+  return [self initWithOutputDirectoryURL:[NSURL fileURLWithPath:[NSFileManager defaultManager].currentDirectoryPath]];
 }
 
 - (instancetype)initWithOutputDirectoryURL:(NSURL *)outputDirectory
 {
-    if (self = [super init]) {
-        _outputDirectory = outputDirectory;
-        NSLog(@"Output Directory %@", _outputDirectory);
-    }
-    return self;    
+  if (self = [super init]) {
+    _outputDirectory = outputDirectory;
+    NSLog(@"Output Directory %@", _outputDirectory);
+  }
+  return self;
 }
 
 - (void)scheduleMonitor:(BasicMonitor *)monitor withTimeInterval:(NSTimeInterval)timeInterval
 {
-    [monitor execute]; // run once
-    [NSTimer scheduledTimerWithTimeInterval:timeInterval target:monitor selector:@selector(execute) userInfo:nil repeats:YES];
+  [monitor execute]; // run once
+  [NSTimer scheduledTimerWithTimeInterval:timeInterval target:monitor selector:@selector(execute) userInfo:nil repeats:YES];
 }
 
 - (void)run
 {
-    CameraMonitor *cameraMonitor = [[CameraMonitor alloc] initWithOutputDirectoryURL:[_outputDirectory URLByAppendingPathComponent:@"headshot"]];
-    [self scheduleMonitor:cameraMonitor withTimeInterval:6*60]; // 6 minutes
-    
-    ActivityMonitor *activityMonitor = [[ActivityMonitor alloc] initWithOutputDirectoryURL:[_outputDirectory URLByAppendingPathComponent:@"activity"]];
-    [self scheduleMonitor:activityMonitor withTimeInterval:30];
-    
-    [[NSRunLoop currentRunLoop] run];
+  CameraMonitor *cameraMonitor = [[CameraMonitor alloc] initWithOutputDirectoryURL:[_outputDirectory URLByAppendingPathComponent:@"headshot"]];
+  [self scheduleMonitor:cameraMonitor withTimeInterval:6*60]; // 6 minutes
+  
+  ActivityMonitor *activityMonitor = [[ActivityMonitor alloc] initWithOutputDirectoryURL:[_outputDirectory URLByAppendingPathComponent:@"activity"]];
+  [self scheduleMonitor:activityMonitor withTimeInterval:30];
+  
+  [[NSRunLoop currentRunLoop] run];
 }
 @end
