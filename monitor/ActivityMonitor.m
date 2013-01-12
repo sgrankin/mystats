@@ -7,6 +7,12 @@
 //
 
 #import "ActivityMonitor.h"
+// --
+#import <IOKit/IOKitLib.h>
+#import "YAML/YAMLSerialization.h"
+// --
+#import "iTunes.h"
+#import "SystemEvents.h"
 
 @implementation ActivityMonitor
 
@@ -24,23 +30,83 @@
     df.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSString *fileName = [NSString stringWithFormat:@"%@-%@.yml", [NSHost currentHost].localizedName, [df stringFromDate:[NSDate date]]];
     NSURL *outputURL = [self.outputDirectory URLByAppendingPathComponent:fileName];
-    
-//    -
-//date: `date +%FT%T%z`
-//idle: $((`/usr/sbin/ioreg -c IOHIDSystem | sed -e '/HIDIdleTime/!{ d' -e 't' -e '}' -e 's/.* = //g' -e 'q'` / 1000000000 ))
-//foreground_app: `/usr/bin/osascript -e 'tell application "System Events"' -e 'set frontApp to name of first application process whose frontmost is true' -e 'end tell'`
-//    EOF
-//    if [ 0 -lt `osascript -e 'tell application "System Events" to count (processes whose name is "itunes")'` ]; then
-//    cat <<EOF >> $FILE
-//itunes:
-//state: `osascript -e 'tell application "iTunes" to player state as string'`
-//    EOF
-//    if [ "playing" = "$(osascript -e 'tell application "iTunes" to player state as string')" ]; then
-//    cat <<EOF >> $FILE
-//artist: `osascript -e 'tell application "iTunes" to artist of current track'`
-//album: `osascript -e 'tell application "iTunes" to album of current track'`
-//title: `osascript -e 'tell application "iTunes" to name of current track'`
 
+    NSData *yaml = [YAMLSerialization dataFromYAML:@[[self activity]] options:kYAMLWriteOptionFragment error:nil];
+
+    if (![[NSFileManager defaultManager] fileExistsAtPath:outputURL.path])
+        [[NSFileManager defaultManager] createFileAtPath:outputURL.path contents:nil attributes:nil];
+    
+    NSFileHandle *file = [NSFileHandle fileHandleForUpdatingURL:outputURL error:nil];
+    [file seekToEndOfFile];
+    [file writeData:yaml];
+    [file closeFile];
+}
+
+- (NSDictionary *)activity
+{
+    NSMutableDictionary *activity = [NSMutableDictionary new];
+    
+    NSDateFormatter *df = [NSDateFormatter new];
+    df.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
+    activity[@"date"] = [df stringFromDate:[NSDate new]];
+    activity[@"idle"] = @([self idleTime]);
+    
+    SystemEventsApplication *systemEvents = [SBApplication applicationWithBundleIdentifier:@"com.apple.systemevents"];
+    NSArray *apps = [systemEvents.applicationProcesses.get filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SystemEventsApplication *app, NSDictionary *bindings) {
+        return app.frontmost;
+    }]];
+    if (apps.count)
+        activity[@"foreground_app"] = [apps[0] name];
+    
+    iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
+    if (iTunes.isRunning) {
+        NSMutableDictionary *iTunesActivity = [NSMutableDictionary new];
+        iTunesActivity[@"state"] = [self stringFromItunesPlayerState:iTunes.playerState];
+        if (iTunes.playerState == iTunesEPlSPlaying) {
+            iTunesTrack *track = iTunes.currentTrack;
+            iTunesActivity[@"artist"] = track.artist;
+            iTunesActivity[@"album"] = track.album;
+            iTunesActivity[@"title"] = track.name;
+        }
+        activity[@"itunes"] = iTunesActivity;
+    }
+    return activity;
+}
+
+- (NSString *)stringFromItunesPlayerState:(iTunesEPlS)playerState
+{
+    switch (playerState) {
+        case iTunesEPlSFastForwarding: return @"fastforwarding";
+        case iTunesEPlSPaused: return @"paused";
+        case iTunesEPlSPlaying: return @"playing";
+        case iTunesEPlSRewinding: return @"rewinding";
+        case iTunesEPlSStopped: return @"stopped";
+    }
+}
+
+- (int64_t)idleTime
+{
+    int64_t idlesecs = -1;
+    io_iterator_t iter = 0;
+    if (IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("IOHIDSystem"), &iter) == KERN_SUCCESS) {
+        io_registry_entry_t entry = IOIteratorNext(iter);
+        if (entry) {
+            CFMutableDictionaryRef dict = NULL;
+            if (IORegistryEntryCreateCFProperties(entry, &dict, kCFAllocatorDefault, 0) == KERN_SUCCESS) {
+                CFNumberRef obj = CFDictionaryGetValue(dict, CFSTR("HIDIdleTime"));
+                if (obj) {
+                    int64_t nanoseconds = 0;
+                    if (CFNumberGetValue(obj, kCFNumberSInt64Type, &nanoseconds)) {
+                        idlesecs = nanoseconds / 1000000000ll; // Divide by 10^9 to convert from nanoseconds to seconds.
+                    }
+                }
+                CFRelease(dict);
+            }
+            IOObjectRelease(entry);
+        }
+        IOObjectRelease(iter);
+    }
+    return idlesecs;
 }
 
 

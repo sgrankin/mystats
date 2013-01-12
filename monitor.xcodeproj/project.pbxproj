@@ -16,7 +16,54 @@
 		97793AD916A1133C00768A4E /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97793AD816A1133C00768A4E /* ScriptingBridge.framework */; };
 		97793ADC16A1136D00768A4E /* ActivityMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793ADB16A1136D00768A4E /* ActivityMonitor.m */; };
 		97793ADF16A113AE00768A4E /* BasicMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97793ADE16A113AE00768A4E /* BasicMonitor.m */; };
+		97793B0C16A1441700768A4E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97793B0B16A1441700768A4E /* IOKit.framework */; };
+		97793B0E16A1490C00768A4E /* YAML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97793AFF16A1420300768A4E /* YAML.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		97793AFE16A1420300768A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97793AF616A1420200768A4E /* YAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = YAML;
+		};
+		97793B0016A1420300768A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97793AF616A1420200768A4E /* YAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D319EEA613E5EE2A000EB46D;
+			remoteInfo = YAMLUnitTests;
+		};
+		97793B0216A1420300768A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97793AF616A1420200768A4E /* YAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB6C420E124D99BE00886AD1;
+			remoteInfo = test;
+		};
+		97793B0416A1420300768A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97793AF616A1420200768A4E /* YAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EBE745C1124F8C0D00618049;
+			remoteInfo = "test (spec12examples)";
+		};
+		97793B0616A1420300768A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97793AF616A1420200768A4E /* YAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB2B5928124E2100001FFEEB;
+			remoteInfo = events;
+		};
+		97793B0916A1435000768A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97793AF616A1420200768A4E /* YAML.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = YAML;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		97793ABD16A1021100768A4E /* CopyFiles */ = {
@@ -47,6 +94,10 @@
 		97793ADB16A1136D00768A4E /* ActivityMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityMonitor.m; sourceTree = "<group>"; };
 		97793ADD16A113AE00768A4E /* BasicMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMonitor.h; sourceTree = "<group>"; };
 		97793ADE16A113AE00768A4E /* BasicMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMonitor.m; sourceTree = "<group>"; };
+		97793AF616A1420200768A4E /* YAML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YAML.xcodeproj; path = vendor/YAML.framework/YAML.xcodeproj; sourceTree = "<group>"; };
+		97793B0B16A1441700768A4E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		97793B0D16A1456B00768A4E /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		97793B0F16A151A300768A4E /* SystemEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemEvents.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97793B0E16A1490C00768A4E /* YAML.framework in Frameworks */,
+				97793B0C16A1441700768A4E /* IOKit.framework in Frameworks */,
 				97793AD916A1133C00768A4E /* ScriptingBridge.framework in Frameworks */,
 				97793AD116A1023000768A4E /* AVFoundation.framework in Frameworks */,
 				97793AC316A1021100768A4E /* Foundation.framework in Frameworks */,
@@ -66,8 +119,9 @@
 		97793AB616A1021100768A4E = {
 			isa = PBXGroup;
 			children = (
-				97793AC416A1021100768A4E /* monitor */,
+				97793AF616A1420200768A4E /* YAML.xcodeproj */,
 				97793AC116A1021100768A4E /* Frameworks */,
+				97793AC416A1021100768A4E /* monitor */,
 				97793AC016A1021100768A4E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,6 +137,7 @@
 		97793AC116A1021100768A4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				97793B0B16A1441700768A4E /* IOKit.framework */,
 				97793AD816A1133C00768A4E /* ScriptingBridge.framework */,
 				97793AD016A1023000768A4E /* AVFoundation.framework */,
 				97793AC216A1021100768A4E /* Foundation.framework */,
@@ -99,11 +154,13 @@
 				97793ADE16A113AE00768A4E /* BasicMonitor.m */,
 				97793AD216A1025F00768A4E /* CameraMonitor.h */,
 				97793AD316A1025F00768A4E /* CameraMonitor.m */,
+				97793B0D16A1456B00768A4E /* iTunes.h */,
 				97793AC516A1021100768A4E /* main.m */,
 				97793AC916A1021100768A4E /* monitor.1 */,
 				97793AD516A1083600768A4E /* Monitor.h */,
 				97793AD616A1083600768A4E /* Monitor.m */,
 				97793AC716A1021100768A4E /* Supporting Files */,
+				97793B0F16A151A300768A4E /* SystemEvents.h */,
 			);
 			path = monitor;
 			sourceTree = "<group>";
@@ -114,6 +171,18 @@
 				97793AC816A1021100768A4E /* monitor-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		97793AF716A1420200768A4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				97793AFF16A1420300768A4E /* YAML.framework */,
+				97793B0116A1420300768A4E /* YAMLUnitTests.octest */,
+				97793B0316A1420300768A4E /* test */,
+				97793B0516A1420300768A4E /* test */,
+				97793B0716A1420300768A4E /* events */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +199,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				97793B0A16A1435000768A4E /* PBXTargetDependency */,
 			);
 			name = monitor;
 			productName = monitor;
@@ -155,12 +225,56 @@
 			mainGroup = 97793AB616A1021100768A4E;
 			productRefGroup = 97793AC016A1021100768A4E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 97793AF716A1420200768A4E /* Products */;
+					ProjectRef = 97793AF616A1420200768A4E /* YAML.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				97793ABE16A1021100768A4E /* monitor */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		97793AFF16A1420300768A4E /* YAML.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = YAML.framework;
+			remoteRef = 97793AFE16A1420300768A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		97793B0116A1420300768A4E /* YAMLUnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = YAMLUnitTests.octest;
+			remoteRef = 97793B0016A1420300768A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		97793B0316A1420300768A4E /* test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = test;
+			remoteRef = 97793B0216A1420300768A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		97793B0516A1420300768A4E /* test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = test;
+			remoteRef = 97793B0416A1420300768A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		97793B0716A1420300768A4E /* events */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = events;
+			remoteRef = 97793B0616A1420300768A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		97793ABB16A1021100768A4E /* Sources */ = {
@@ -176,6 +290,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		97793B0A16A1435000768A4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YAML;
+			targetProxy = 97793B0916A1435000768A4E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		97793ACB16A1021100768A4E /* Debug */ = {
