@@ -16,5 +16,6 @@
 /// Subclasses should override this method to do their activities.
 - (void)execute;
 
-@property (readonly) NSURL *outputDirectory;
+@property(nonatomic, readonly) NSURL *outputDirectory;
+@property(nonatomic) BOOL verbose;
 @end

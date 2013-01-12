@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Monitor : NSObject
-- (instancetype)initWithOutputDirectoryURL:(NSURL *)outputDirectory;
-- (void)run;
+- (void)run; ///< Run the main loop.
+
+@property(nonatomic) NSURL *outputDirectory; ///< Defaults to current working directory.
+@property(nonatomic) BOOL verbose; ///< Enable verbose logging.
 @end

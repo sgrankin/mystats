@@ -12,7 +12,6 @@
 {
   NSURL *_outputDirectory;
 }
-
 @end
 
 @implementation BasicMonitor

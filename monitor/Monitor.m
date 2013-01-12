@@ -14,34 +14,32 @@
 
 @interface Monitor ()
 {
-  NSURL *_outputDirectory;
 }
-
 @end
 
 @implementation Monitor
 - (instancetype)init
 {
-  return [self initWithOutputDirectoryURL:[NSURL fileURLWithPath:[NSFileManager defaultManager].currentDirectoryPath]];
-}
-
-- (instancetype)initWithOutputDirectoryURL:(NSURL *)outputDirectory
-{
   if (self = [super init]) {
-    _outputDirectory = outputDirectory;
-    NSLog(@"Output Directory %@", _outputDirectory);
+    _outputDirectory = [NSURL fileURLWithPath:[NSFileManager defaultManager].currentDirectoryPath];
+    _verbose = NO;
   }
   return self;
 }
 
 - (void)scheduleMonitor:(BasicMonitor *)monitor withTimeInterval:(NSTimeInterval)timeInterval
 {
+  if (self.verbose)
+    NSLog(@"Adding %@ with interval %f", monitor.class, timeInterval);
+  monitor.verbose = self.verbose;
   [monitor execute]; // run once
   [NSTimer scheduledTimerWithTimeInterval:timeInterval target:monitor selector:@selector(execute) userInfo:nil repeats:YES];
 }
 
 - (void)run
 {
+  if (self.verbose)
+    NSLog(@"Writing to %@", self.outputDirectory);
   CameraMonitor *cameraMonitor = [[CameraMonitor alloc] initWithOutputDirectoryURL:[_outputDirectory URLByAppendingPathComponent:@"headshot"]];
   [self scheduleMonitor:cameraMonitor withTimeInterval:6*60]; // 6 minutes
   

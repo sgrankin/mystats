@@ -20,15 +20,18 @@
 @implementation CameraMonitor
 - (instancetype)initWithOutputDirectoryURL:(NSURL *)outputDirectory
 {
+  NSError *error;
   if (self = [super initWithOutputDirectoryURL:outputDirectory]) {
     _captureSession = [AVCaptureSession new];
     [_captureSession beginConfiguration];
     _captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
     
     AVCaptureDevice *camera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    AVCaptureDeviceInput *cameraInput = [AVCaptureDeviceInput deviceInputWithDevice:camera error:nil];
-    if (!cameraInput)
+    AVCaptureDeviceInput *cameraInput = [AVCaptureDeviceInput deviceInputWithDevice:camera error:&error];
+    if (!cameraInput) {
+      NSLog(@"Error opening camera: %@ #Error", error.localizedDescription);
       return nil;
+    }
     [_captureSession addInput:cameraInput];
     
     _stillOutput = [AVCaptureStillImageOutput new];
@@ -59,7 +62,12 @@
        if (imageDataSampleBuffer) {
          NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
          CFRelease(imageDataSampleBuffer);
+         if (self.verbose)
+           NSLog(@"%@ Writing snapshot to %@ #Comment", self.class, outputURL);
          [data writeToURL:outputURL atomically:YES];
+       }
+       else {
+         NSLog(@"Error snapping photo: %@ #Error", error.localizedDescription);
        }
      });
    }];

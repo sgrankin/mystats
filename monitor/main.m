@@ -7,12 +7,47 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <getopt.h>
+// --
 #import "Monitor.h"
 
-int main(int argc, const char * argv[])
+void usage(char const * const my_name)
+{
+  printf("usage: %s [options] [output_directory]\n", my_name);
+  printf("options:\n");
+  printf("  -t, --help      Be helpful\n");
+  printf("  -v, --verbose   Be move verbose\n");
+}
+
+int main(int argc, char * const argv[])
 {
   @autoreleasepool {
-    [[Monitor new] run];
+    static struct option longopts[] = {
+      {"help",    no_argument, NULL, 'h'},
+      {"verbose", no_argument, NULL, 'v'},
+      {NULL, 0, NULL, 0},
+    };
+    
+    Monitor *monitor = [Monitor new];
+    int opt;
+    while ((opt = getopt_long(argc, argv, "hv", longopts, NULL)) != -1) {
+      switch (opt) {
+        case 'v':
+          monitor.verbose = YES;
+          break;
+        case 'h':
+        default:
+          usage(argv[0]);
+          return 1;
+      }
+    }
+    argc -= optind;
+    argv += optind;
+    
+    if (argc > 1)
+      monitor.outputDirectory = [NSURL fileURLWithPath:[NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding] isDirectory:YES];
+    
+    [monitor run]; // GO!
   }
   return 0;
 }
