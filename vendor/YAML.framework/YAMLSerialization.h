@@ -27,10 +27,11 @@ typedef enum {
   kYAMLErrorInvalidYamlObject,
 } YAMLErrorCode;
 
-typedef enum {
-  kYAMLWriteOptionSingleDocument    = 0x0000000000000001,
-  kYAMLWriteOptionMultipleDocuments = 0x0000000000000010,
-} YAMLWriteOptions;
+typedef NS_OPTIONS(NSUInteger, YAMLWriteOptions) {
+    kYAMLWriteOptionSingleDocument      = 0,
+    kYAMLWriteOptionFragment            = 1ull << 0,
+    kYAMLWriteOptionMultipleDocuments   = 1ull << 4,
+};
 
 extern NSString *const YAMLErrorDomain;
 
