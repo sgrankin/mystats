@@ -375,7 +375,7 @@ static id YAMLSerializationWithDocument(yaml_document_t *document, YAMLReadOptio
 	}
 
 	yaml_emitter_delete(&emitter);
-	return [data dataUsingEncoding:NSUnicodeStringEncoding];
+    return [data dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 @end
