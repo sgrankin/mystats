@@ -69,7 +69,7 @@
 		97793ABD16A1021100768A4E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = /usr/local/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
 				97793ACA16A1021100768A4E /* monitor.1 in CopyFiles */,
