@@ -1,6 +1,7 @@
 rule bundler
   command = bundle install --quiet --gemfile=$in --binstubs && touch $out
 build Gemfile.lock : bundler Gemfile
+build bundle_setup : phony Gemfile.lock
 
 rule sdp
   command = sdef $in | sdp -fh -o $out --basename $basename
@@ -11,5 +12,5 @@ build monitor/SystemEvents.h : sdp /System/Library/CoreServices/System$ Events.a
 
 rule ronn
   command = bin/ronn --markdown --roff --html --style=toc $in
-build man/monitor.1.html man/monitor.1.markdown man/monitor.1 : ronn man/monitor.1.ronn
+build man/monitor.1.html man/monitor.1.markdown man/monitor.1 : ronn man/monitor.1.ronn | bundle_setup
 
