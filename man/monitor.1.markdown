@@ -5,7 +5,7 @@ monitor(1) -- spy on yourself
 `monitor` <var>path</var>
 
 ## DESCRIPTION
-While running, `monitor` will, at it's discretion:
+While running, `monitor` will, at its discretion:
 
 - Snap a photo with your webcam.
 - Record the current app.

@@ -14,3 +14,7 @@ rule ronn
   command = bin/ronn --markdown --roff --html --style=toc $in
 build man/monitor.1.html man/monitor.1.markdown man/monitor.1 : ronn man/monitor.1.ronn | bundle_setup
 
+rule cp
+  command = cp $in $out
+build README.md : cp man/monitor.1.markdown
+
